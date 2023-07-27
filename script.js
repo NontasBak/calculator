@@ -39,6 +39,7 @@ function updateBottomScreen(e) {
 }
 
 function updateTopScreen(num) {
+    num = parseFloat(num.toFixed(3));
     operator !== "="
     ? operation.textContent = `${num} ${operator} `
     : operation.textContent = operation.textContent + `${num} =`;
@@ -53,7 +54,6 @@ let operator = null;
 const screen = document.querySelector(".screen");
 const operation = document.querySelector(".operation");
 let screenValue = 0;
-
 
 const numbers = document.querySelectorAll(".number");
 
@@ -85,8 +85,12 @@ operators.forEach(op => {
 
 const equals = document.querySelector("#equals");
 equals.addEventListener("click", () => {
+    if(operator === null)
+        return;
+    
     num2 = screenValue;
     let result = operate(num1, num2, operator)
+    result = parseFloat(result.toFixed(3));
     screen.textContent = `${result}`;
     operator = "="
     updateTopScreen(num2);
