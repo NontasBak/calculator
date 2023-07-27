@@ -117,3 +117,16 @@ decimalButton.addEventListener("click", () => {
     screen.textContent = screen.textContent.concat(".");
     screenValue = Number(screen.textContent);
 })
+
+const backspace = document.querySelector("#backspace");
+backspace.addEventListener("click", () => {
+    if(screen.textContent === "0")
+        return;
+
+    screen.textContent = screen.textContent.slice(0, -1);
+
+    if(screen.textContent === "")
+        screen.textContent = "0";
+    
+    screenValue = Number(screen.textContent);
+})
