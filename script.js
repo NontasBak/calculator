@@ -45,6 +45,15 @@ function updateTopScreen(num) {
     : operation.textContent = operation.textContent + `${num} =`;
 }
 
+function resetEverything() {
+    screen.textContent = "0";
+    operation.textContent = "";
+    num1 = 0;
+    num2 = 0;
+    operator = null;
+    screenValue = 0;
+}
+
 
 
 
@@ -63,7 +72,6 @@ numbers.forEach(number => {
 
 
 const operators = document.querySelectorAll(".operator")
-
 operators.forEach(op => {
     op.addEventListener("click", (e) => {
         if(screen.textContent === "0")
@@ -97,3 +105,6 @@ equals.addEventListener("click", () => {
     operator = null;
     screenValue = result;
 })
+
+const clear = document.querySelector("#clear");
+clear.addEventListener("click", resetEverything)
