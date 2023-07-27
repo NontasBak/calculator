@@ -14,8 +14,6 @@ function divide(num1, num2) {
     return num1 / num2;
 }
 
-
-
 function operate(num1, num2, operator) {
     switch(operator)
     {
@@ -32,6 +30,23 @@ function operate(num1, num2, operator) {
     }
 }
 
+function updateBottomScreen(e) {
+    if(screen.textContent === "0")
+        screen.textContent = "";
+        
+    screen.textContent = screen.textContent.concat(`${e.target.textContent}`);
+    screenValue = Number(screen.textContent);
+}
+
+function updateTopScreen(num) {
+    operator !== "="
+    ? operation.textContent = `${num} ${operator} `
+    : operation.textContent = operation.textContent + `${num} =`;
+}
+
+
+
+
 let num1 = 0, num2 = 0;
 let operator = null;
 
@@ -45,18 +60,6 @@ const numbers = document.querySelectorAll(".number");
 numbers.forEach(number => {
     number.addEventListener("click", updateBottomScreen)
 });
-
-function updateBottomScreen(e) {
-    if(screen.textContent === "0")
-        screen.textContent = "";
-        
-    screen.textContent = screen.textContent.concat(`${e.target.textContent}`);
-    screenValue = Number(screen.textContent);
-}
-
-function updateTopScreen(num) {
-    operation.textContent = `${num} ${operator} `;
-}
 
 
 const operators = document.querySelectorAll(".operator")
@@ -78,4 +81,15 @@ operators.forEach(op => {
         updateTopScreen(num1)
         screen.textContent = "0";
     })
+})
+
+const equals = document.querySelector("#equals");
+equals.addEventListener("click", () => {
+    num2 = screenValue;
+    let result = operate(num1, num2, operator)
+    screen.textContent = `${result}`;
+    operator = "="
+    updateTopScreen(num2);
+    operator = null;
+    screenValue = result;
 })
