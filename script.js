@@ -108,3 +108,12 @@ equals.addEventListener("click", () => {
 
 const clear = document.querySelector("#clear");
 clear.addEventListener("click", resetEverything)
+
+const decimalButton = document.querySelector("#decimal");
+decimalButton.addEventListener("click", () => {
+    if(screen.textContent.includes("."))
+        return;
+    
+    screen.textContent = screen.textContent.concat(".");
+    screenValue = Number(screen.textContent);
+})
