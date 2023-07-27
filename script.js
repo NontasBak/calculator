@@ -33,3 +33,21 @@ function operate(num1, num2, operator) {
     }
 }
 
+const screen = document.querySelector(".screen");
+let screenValue = "";
+updateScreen();
+
+
+
+
+function updateScreen() {
+    const numbers = document.querySelectorAll(".number");
+
+    numbers.forEach(number => {
+        number.addEventListener("click", (e) => {
+            //console.log(e);
+            screen.textContent = screen.textContent.concat(`${e.target.textContent}`);
+        })
+    });
+}
+
