@@ -31,6 +31,7 @@ function operate(num1, num2, operator) {
 }
 
 function updateBottomScreen(e) {
+    waitForNum2 = false;
     if(screen.textContent === "0")
         screen.textContent = "";
         
@@ -63,6 +64,7 @@ let operator = null;
 const screen = document.querySelector(".screen");
 const operation = document.querySelector(".operation");
 let screenValue = 0;
+let waitForNum2 = false;
 
 const numbers = document.querySelectorAll(".number");
 
@@ -88,12 +90,13 @@ operators.forEach(op => {
         operator = e.target.textContent;
         updateTopScreen(num1)
         screen.textContent = "0";
+        waitForNum2 = true;
     })
 })
 
 const equals = document.querySelector("#equals");
 equals.addEventListener("click", () => {
-    if(operator === null)
+    if(operator === null || waitForNum2)
         return;
     
     num2 = screenValue;
