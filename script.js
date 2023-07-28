@@ -48,7 +48,7 @@ function updateTopScreen(num) {
 
 function resetEverything() {
     screen.textContent = "0";
-    operation.textContent = "";
+    operation.textContent = "0";
     num1 = 0;
     num2 = 0;
     operator = null;

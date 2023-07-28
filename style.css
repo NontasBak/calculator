@@ -1,3 +1,85 @@
 * {
-    font-size: 20px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    padding-right: 30px;
+    font-size: 35px;
+}
+
+.top-screen-container, .bottom-screen-container {
+    min-height: 10%;
+    margin: 20px;
+    padding: auto 0;
+    margin-bottom: 5px;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: rgb(104, 212, 255);
+    border-width: 4px;
+    text-align: right;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bottom-screen-container {
+    height: 15%;
+    margin: 0px 20px 20px;
+}
+
+
+button {
+    padding: auto;
+    border-style: solid;
+    border-color: darkblue;
+    border-width: 4px;
+    margin: 10px;
+    display: inline-block;
+    flex: 1 0 auto;
+    height: 70px;
+    border-radius: 10px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.number-container, .clear-delete {
+    margin: 0px 20px;
+    margin-bottom: 10px;
+}
+
+.calculator {
+    background-color: lightgray;
+    width: 500px;
+    height: 700px;
+    border-radius: 50px;
+    border-color: black;
+    border-style: solid;
+    border-width: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.clear-delete, .first-row, .second-row, .third-row, .fourth-row {
+    display: flex;
+    justify-content: center;
+}
+
+.operator {
+    background-color: rgb(213, 210, 255);
+}
+
+#equals, #decimal {
+    background-color: rgb(255, 225, 225);
+}
+
+#clear, #backspace {
+    background-color: rgb(255, 225, 225);
 }
